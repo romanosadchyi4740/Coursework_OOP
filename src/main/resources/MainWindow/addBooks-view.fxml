@@ -15,6 +15,6 @@
       <CheckBox fx:id="hasImagesCheckBox" layoutX="17.0" layoutY="200.0" mnemonicParsing="false" text="Has images" />
       <CheckBox fx:id="hasSolidCoverCheckBox" layoutX="17.0" layoutY="227.0" mnemonicParsing="false" text="Has solid cover" />
       <TextField fx:id="circulationField" layoutX="17.0" layoutY="260.0" promptText="Circulation" />
-      <Button fx:id="addButton" layoutX="54.0" layoutY="302.0" mnemonicParsing="false" text="Add book" />
+      <Button fx:id="addButton" layoutX="54.0" layoutY="302.0" mnemonicParsing="false" onAction="#onAddButtonClick" text="Add book" />
    </children>
 </AnchorPane>

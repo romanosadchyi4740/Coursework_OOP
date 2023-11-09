@@ -14,15 +14,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class MainController {
-    private ArrayList<Book> books;
+    private static ObservableList<Book> books = FXCollections.observableArrayList();
     // main window elements
-    @FXML
-    public Stage stage;
-    @FXML
-    public Scene scene;
+    public static Stage stage;
+    public static Scene scene;
     @FXML
     private TableView tableView;
     @FXML
@@ -54,10 +51,7 @@ public class MainController {
     @FXML
     private Button biggestBookButton;
 
-    @FXML
-    public void readFromFile() throws IOException, ClassNotFoundException {
-        fileInput();
-
+    private void manageTableColumns() {
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("publicationYear"));
@@ -67,7 +61,16 @@ public class MainController {
         coverColumn.setCellValueFactory(new PropertyValueFactory<>("hasSolidCover"));
         circulationColumn.setCellValueFactory(new PropertyValueFactory<>("circulation"));
 
-        tableView.setItems(getBooks(books));
+        tableView.setItems(books);
+        tableView.refresh();
+    }
+
+    @FXML
+    public void readFromFile() throws IOException, ClassNotFoundException {
+        manageTableColumns();
+
+        fileInput();
+        tableView.refresh();
     }
 
     @FXML
@@ -76,8 +79,8 @@ public class MainController {
     }
 
     // task 1
-    public ArrayList<Book> findByTitleAndYear(String title, int year) {
-        ArrayList<Book> res = new ArrayList<>();
+    public ObservableList<Book> findByTitleAndYear(String title, int year) {
+        ObservableList<Book> res = FXCollections.observableArrayList();
         for (Book book : books) {
             if (book.getTitle().equals(title) && book.getPublicationYear() == year) {
                 res.add(book);
@@ -92,9 +95,9 @@ public class MainController {
     }
 
     // task 2
-    public ArrayList<Book> onSortButtonClick() {
-        ArrayList<Book> res = new ArrayList<>();
-        ArrayList<ArrayList<Book>> groups = divideToGroups(books);
+    public ObservableList<Book> onSortButtonClick() {
+        ObservableList<Book> res = FXCollections.observableArrayList();
+        ObservableList<ObservableList<Book>> groups = divideToGroups(books);
         for (int i = 0; i < groups.size(); i++) {
             groups.set(i, quickSort(groups.get(i)));
             res.addAll(groups.get(i));
@@ -103,8 +106,8 @@ public class MainController {
         return res;
     }
 
-    public ArrayList<ArrayList<Book>> divideToGroups(ArrayList<Book> books) {
-        ArrayList<ArrayList<Book>> res = new ArrayList<>();
+    public ObservableList<ObservableList<Book>> divideToGroups(ObservableList<Book> books) {
+        ObservableList<ObservableList<Book>> res = FXCollections.observableArrayList();
         for (Book book : books) {
             boolean containsAuthor = false;
             for (int i = 0; i < res.size(); i++) {
@@ -116,7 +119,7 @@ public class MainController {
             }
 
             if (!containsAuthor) {
-                res.add(new ArrayList<>());
+                res.add(FXCollections.observableArrayList());
                 res.get(res.size() - 1).add(book);
             }
         }
@@ -124,10 +127,10 @@ public class MainController {
         return res;
     }
 
-    protected ArrayList<Book> quickSort(ArrayList<Book> list) {
-        ArrayList<Book> sorted;
-        ArrayList<Book> smaller = new ArrayList<>();
-        ArrayList<Book> bigger = new ArrayList<>();
+    protected ObservableList<Book> quickSort(ObservableList<Book> list) {
+        ObservableList<Book> sorted;
+        ObservableList<Book> smaller = FXCollections.observableArrayList();
+        ObservableList<Book> bigger = FXCollections.observableArrayList();
         Book pivot = list.get(0);
         int i;
         Book j;
@@ -151,8 +154,8 @@ public class MainController {
 
 
     // task 3
-    public ArrayList<Book> getMax() {
-        ArrayList<Book> res = new ArrayList<>();
+    public ObservableList<Book> getMax() {
+        ObservableList<Book> res = FXCollections.observableArrayList();
         for (Book book : books) {
             if (res.isEmpty()) {
                 if (book.isHasImages()) {
@@ -180,8 +183,10 @@ public class MainController {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(
                 new FileOutputStream(file)
         )) {
+            outputStream.writeInt(books.size());
+
             for (Book book : books) {
-                outputStream.writeObject(book);
+                book.writeExternal(outputStream);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -196,8 +201,11 @@ public class MainController {
                 new FileInputStream(file)
         )) {
             books.clear();
-            while (inputStream.available() > 0) {
-                books.add((Book) inputStream.readObject());
+            int size = inputStream.readInt();
+            for (int i = 0; i < size; i++) {
+                Book newBook = new Book();
+                newBook.readExternal(inputStream);
+                books.add(newBook);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -206,20 +214,25 @@ public class MainController {
 
     @FXML
     public void onAddBookButtonClick() throws IOException {
+        manageTableColumns();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBooks-view.fxml"));
 
-        MainApplication.stage.getScene();
+        scene = MainApplication.stage.getScene();
         Scene scene = new Scene(fxmlLoader.load());
 
-        MainApplication.stage.setTitle("Hello!");
+        MainApplication.stage.setTitle("Add a book");
         MainApplication.stage.setScene(scene);
         MainApplication.stage.show();
     }
 
-    public static ObservableList<Book> getBooks(ArrayList<Book> arr) {
+    /*public static ObservableList<Book> getBooks(ArrayList<Book> arr) {
         ObservableList<Book> numbers = FXCollections.observableArrayList();
         numbers.addAll(arr);
 
         return numbers;
+    }*/
+
+    public static ObservableList<Book> getBooks() {
+        return books;
     }
 }
