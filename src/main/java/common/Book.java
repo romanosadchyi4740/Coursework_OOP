@@ -136,6 +136,4 @@ public class Book implements Externalizable {
         hasSolidCover = in.readBoolean();
         circulation = in.readInt();
     }
-
-
 }

@@ -34,13 +34,18 @@ public class AddBookController {
     private Button addButton;
 
     @FXML
-    public void onAddButtonClick() throws IOException {
-        if (authorField.getText().isEmpty() ||
-                titleField.getText().isEmpty() ||
-                yearField.getText().isEmpty() ||
-                pagesNumField.getText().isEmpty() ||
-                publicationsNumField.getText().isEmpty() ||
-                circulationField.getText().isEmpty()) {
+    public void onAddButtonClick() {
+        if (authorField.getText().isEmpty()) {
+
+        } else if (titleField.getText().isEmpty()) {
+
+        } else if (yearField.getText().isEmpty()) {
+
+        } else if (pagesNumField.getText().isEmpty()) {
+
+        } else if (publicationsNumField.getText().isEmpty()) {
+
+        } else if (circulationField.getText().isEmpty()) {
             return;
         }
 
@@ -56,9 +61,7 @@ public class AddBookController {
         Book book = new Book(author, title, year, pagesNum, publications, hasImages, hasSolidCover, circulation);
         MainController.getBooks().add(book);
 
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main-view.fxml"));
         MainApplication.stage.getScene();
-        //Scene scene = new Scene(fxmlLoader.load());
 
         MainApplication.stage.setTitle("Main window");
         MainApplication.stage.setScene(MainController.scene);

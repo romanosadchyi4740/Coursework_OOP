@@ -7,10 +7,10 @@
     <list default="true" id="1f0748e1-32dc-46fe-95ce-6c142df4a712" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/addBooks-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/addBooks-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/SerializationUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,29 +37,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Роман3071\IdeaProjects\CourseworkFX\src\main\resources\MainWindow" />
       <recent name="C:\Users\Роман3071\IdeaProjects\CourseworkFX\src\main\resources\AddBook" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="MainWindow" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainWindow.MainApplication" />
+      <module name="CourseworkFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MainWindow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,7 +101,15 @@
       <workItem from="1699184247408" duration="845000" />
       <workItem from="1699198108653" duration="7916000" />
       <workItem from="1699547756179" duration="58000" />
-      <workItem from="1699547889138" duration="5840000" />
+      <workItem from="1699547889138" duration="8818000" />
+      <workItem from="1699599035221" duration="133000" />
+      <workItem from="1699603434807" duration="29000" />
+      <workItem from="1699606219363" duration="112000" />
+      <workItem from="1699624045361" duration="826000" />
+      <workItem from="1699650270621" duration="50000" />
+      <workItem from="1699692670468" duration="7000" />
+      <workItem from="1699734505531" duration="824000" />
+      <workItem from="1699774741670" duration="485000" />
     </task>
     <task id="LOCAL-00001" summary="Add window opens, but has no functionality yet.">
       <option name="closed" value="true" />
@@ -89,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699548158609</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Now add window works correctly. Yet it doesn't handle exceptions and doesn't show user, what was his mistake. Serialization works properly. Still would be good to shorten the time for file selection.">
+      <option name="closed" value="true" />
+      <created>1699554007654</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699554007654</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,17 +146,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add window opens, but has no functionality yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add window opens, but has no functionality yet." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MainWindow/MainController.java</url>
-          <line>199</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Now add window works correctly. Yet it doesn't handle exceptions and doesn't show user, what was his mistake. Serialization works properly. Still would be good to shorten the time for file selection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now add window works correctly. Yet it doesn't handle exceptions and doesn't show user, what was his mistake. Serialization works properly. Still would be good to shorten the time for file selection." />
   </component>
 </project>

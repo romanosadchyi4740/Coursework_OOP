@@ -95,7 +95,8 @@ public class MainController {
     }
 
     // task 2
-    public ObservableList<Book> onSortButtonClick() {
+    @FXML
+    public void onSortButtonClick() {
         ObservableList<Book> res = FXCollections.observableArrayList();
         ObservableList<ObservableList<Book>> groups = divideToGroups(books);
         for (int i = 0; i < groups.size(); i++) {
@@ -103,7 +104,7 @@ public class MainController {
             res.addAll(groups.get(i));
         }
 
-        return res;
+        books = res;
     }
 
     public ObservableList<ObservableList<Book>> divideToGroups(ObservableList<Book> books) {
@@ -178,6 +179,7 @@ public class MainController {
 
     public void fileOutput() {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\Programming\\Coursework"));
         File file = fileChooser.showOpenDialog(MainApplication.stage);
 
         try (ObjectOutputStream outputStream = new ObjectOutputStream(
@@ -195,6 +197,7 @@ public class MainController {
 
     public void fileInput() throws IOException, ClassNotFoundException {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\Programming\\Coursework"));
         File file = fileChooser.showOpenDialog(MainApplication.stage);
 
         try (ObjectInputStream inputStream = new ObjectInputStream(
@@ -217,20 +220,15 @@ public class MainController {
         manageTableColumns();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBooks-view.fxml"));
 
+        stage = MainApplication.stage;
         scene = MainApplication.stage.getScene();
+
         Scene scene = new Scene(fxmlLoader.load());
 
         MainApplication.stage.setTitle("Add a book");
         MainApplication.stage.setScene(scene);
         MainApplication.stage.show();
     }
-
-    /*public static ObservableList<Book> getBooks(ArrayList<Book> arr) {
-        ObservableList<Book> numbers = FXCollections.observableArrayList();
-        numbers.addAll(arr);
-
-        return numbers;
-    }*/
 
     public static ObservableList<Book> getBooks() {
         return books;

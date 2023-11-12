@@ -20,7 +20,7 @@
         </columns>
       </TableView>
       <Button fx:id="addBookButton" layoutX="23.0" layoutY="340.0" mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
-      <Button fx:id="sortButton" layoutX="319.0" layoutY="265.0" mnemonicParsing="false" text="Sort by number of pages" />
+      <Button fx:id="sortButton" layoutX="319.0" layoutY="265.0" mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
       <Button fx:id="findBookButton" layoutX="319.0" layoutY="304.0" mnemonicParsing="false" text="Find book" />
       <Button fx:id="biggestBookButton" layoutX="319.0" layoutY="341.0" mnemonicParsing="false" text="Find the biggest book with illustrations" />
       <Button fx:id="loadTableButton" layoutX="21.0" layoutY="264.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
