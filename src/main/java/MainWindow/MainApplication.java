@@ -15,6 +15,7 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         MainApplication.stage = stage;
+        stage.setResizable(false);
 
         stage.setTitle("Main window");
         stage.setScene(scene);

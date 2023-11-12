@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -74,24 +75,29 @@ public class MainController {
     }
 
     @FXML
-    public void saveToFile() throws IOException {
+    public void saveToFile() {
         fileOutput();
     }
 
     // task 1
-    public ObservableList<Book> findByTitleAndYear(String title, int year) {
-        ObservableList<Book> res = FXCollections.observableArrayList();
-        for (Book book : books) {
-            if (book.getTitle().equals(title) && book.getPublicationYear() == year) {
-                res.add(book);
-            }
-        }
+    @FXML
+    public void onFindBookButtonClick() throws IOException {
+        manageTableColumns();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("findBook-view.fxml"));
 
-        if (res.isEmpty()) {
-            return null;
-        }
+        scene = MainApplication.stage.getScene();
 
-        return res;
+        Stage findBookStage = new Stage();
+        stage = findBookStage;
+        Scene scene = new Scene(fxmlLoader.load());
+
+        findBookStage.initModality(Modality.WINDOW_MODAL);
+        findBookStage.initOwner(MainApplication.stage);
+
+        findBookStage.setTitle("Find books");
+        findBookStage.setResizable(false);
+        findBookStage.setScene(scene);
+        findBookStage.show();
     }
 
     // task 2
@@ -226,7 +232,11 @@ public class MainController {
         stage = addBookStage;
         Scene scene = new Scene(fxmlLoader.load());
 
+        addBookStage.initModality(Modality.WINDOW_MODAL);
+        addBookStage.initOwner(MainApplication.stage);
+
         addBookStage.setTitle("Add a book");
+        addBookStage.setResizable(false);
         addBookStage.setScene(scene);
         addBookStage.show();
     }

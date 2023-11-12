@@ -5,25 +5,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindow.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindow.MainController">
    <children>
-      <TableView fx:id="tableView" layoutX="14.0" layoutY="21.0" prefHeight="200.0" prefWidth="586.0">
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="21.0" prefHeight="353.0" prefWidth="919.0">
         <columns>
-          <TableColumn fx:id="authorColumn" prefWidth="75.0" text="Author" />
-          <TableColumn fx:id="titleColumn" prefWidth="90.39996337890625" text="Title" />
-            <TableColumn fx:id="yearColumn" prefWidth="99.20001220703125" text="Publication Year" />
-            <TableColumn fx:id="pagesColumn" minWidth="2.39996337890625" prefWidth="40.79998779296875" text="Pages" />
-            <TableColumn fx:id="publicationsColumn" prefWidth="47.20001220703125" text="Copies" />
-            <TableColumn fx:id="illustrationsColumn" prefWidth="76.0" text="Illustrations" />
-            <TableColumn fx:id="coverColumn" prefWidth="75.199951171875" text="Cover" />
-            <TableColumn fx:id="circulationColumn" prefWidth="85.60003662109375" text="Circulation" />
+          <TableColumn fx:id="authorColumn" prefWidth="200.00002765655518" text="Author" />
+          <TableColumn fx:id="titleColumn" prefWidth="259.19996643066406" text="Title" />
+            <TableColumn fx:id="yearColumn" prefWidth="104.79998779296875" text="Publication Year" />
+            <TableColumn fx:id="pagesColumn" minWidth="2.39996337890625" prefWidth="54.4000244140625" text="Pages" />
+            <TableColumn fx:id="publicationsColumn" prefWidth="74.4000244140625" text="Publications" />
+            <TableColumn fx:id="illustrationsColumn" prefWidth="73.60003662109375" text="Illustrations" />
+            <TableColumn fx:id="coverColumn" prefWidth="67.199951171875" text="Hard cover" />
+            <TableColumn fx:id="circulationColumn" prefWidth="93.60009765625" text="Circulation" />
         </columns>
       </TableView>
-      <Button fx:id="addBookButton" layoutX="23.0" layoutY="340.0" mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
-      <Button fx:id="sortButton" layoutX="319.0" layoutY="265.0" mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
-      <Button fx:id="findBookButton" layoutX="319.0" layoutY="304.0" mnemonicParsing="false" text="Find book" />
-      <Button fx:id="biggestBookButton" layoutX="319.0" layoutY="341.0" mnemonicParsing="false" text="Find the biggest book with illustrations" />
-      <Button fx:id="loadTableButton" layoutX="21.0" layoutY="264.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
-      <Button fx:id="saveTableButton" layoutX="22.0" layoutY="303.0" mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
+      <Button fx:id="addBookButton" layoutX="27.0" layoutY="491.0" mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
+      <Button fx:id="sortButton" layoutX="323.0" layoutY="416.0" mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
+      <Button fx:id="findBookButton" layoutX="323.0" layoutY="455.0" mnemonicParsing="false" onAction="#onFindBookButtonClick" text="Find book" />
+      <Button fx:id="biggestBookButton" layoutX="323.0" layoutY="492.0" mnemonicParsing="false" text="Find the biggest book with illustrations" />
+      <Button fx:id="loadTableButton" layoutX="25.0" layoutY="415.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
+      <Button fx:id="saveTableButton" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
    </children>
 </AnchorPane>
