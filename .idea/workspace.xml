@@ -8,9 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/SerializationUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <workItem from="1699650270621" duration="50000" />
       <workItem from="1699692670468" duration="7000" />
       <workItem from="1699734505531" duration="824000" />
-      <workItem from="1699774741670" duration="485000" />
+      <workItem from="1699774741670" duration="5059000" />
     </task>
     <task id="LOCAL-00001" summary="Add window opens, but has no functionality yet.">
       <option name="closed" value="true" />
@@ -127,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699554007654</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Next step will be replacing addBook scene with addBook stage. Also still have to create error handling and fix 3 functions.">
+      <option name="closed" value="true" />
+      <created>1699775319421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699775319421</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +152,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add window opens, but has no functionality yet." />
     <MESSAGE value="Now add window works correctly. Yet it doesn't handle exceptions and doesn't show user, what was his mistake. Serialization works properly. Still would be good to shorten the time for file selection." />
-    <option name="LAST_COMMIT_MESSAGE" value="Now add window works correctly. Yet it doesn't handle exceptions and doesn't show user, what was his mistake. Serialization works properly. Still would be good to shorten the time for file selection." />
+    <MESSAGE value="Next step will be replacing addBook scene with addBook stage. Also still have to create error handling and fix 3 functions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Next step will be replacing addBook scene with addBook stage. Also still have to create error handling and fix 3 functions." />
   </component>
 </project>

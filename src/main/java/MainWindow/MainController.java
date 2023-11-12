@@ -220,14 +220,15 @@ public class MainController {
         manageTableColumns();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBooks-view.fxml"));
 
-        stage = MainApplication.stage;
         scene = MainApplication.stage.getScene();
 
+        Stage addBookStage = new Stage();
+        stage = addBookStage;
         Scene scene = new Scene(fxmlLoader.load());
 
-        MainApplication.stage.setTitle("Add a book");
-        MainApplication.stage.setScene(scene);
-        MainApplication.stage.show();
+        addBookStage.setTitle("Add a book");
+        addBookStage.setScene(scene);
+        addBookStage.show();
     }
 
     public static ObservableList<Book> getBooks() {
