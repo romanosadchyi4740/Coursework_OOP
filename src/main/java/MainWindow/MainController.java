@@ -22,7 +22,7 @@ public class MainController {
     public static Stage stage;
     public static Scene scene;
     @FXML
-    private TableView tableView;
+    private TableView<Book> tableView;
     @FXML
     private TableColumn<Book, String> authorColumn;
     @FXML
@@ -52,7 +52,7 @@ public class MainController {
     @FXML
     private Button biggestBookButton;
 
-    private void manageTableColumns() {
+    public static void tableManager(TableColumn<Book, String> authorColumn, TableColumn<Book, String> titleColumn, TableColumn<Book, Integer> yearColumn, TableColumn<Book, Integer> pagesColumn, TableColumn<Book, Integer> publicationsColumn, TableColumn<Book, Boolean> illustrationsColumn, TableColumn<Book, Boolean> coverColumn, TableColumn<Book, Integer> circulationColumn, TableView<Book> tableView, ObservableList<Book> books) {
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("publicationYear"));
@@ -68,7 +68,17 @@ public class MainController {
 
     @FXML
     public void readFromFile() throws IOException, ClassNotFoundException {
-        manageTableColumns();
+        tableManager(authorColumn,
+                titleColumn,
+                yearColumn,
+                pagesColumn,
+                publicationsColumn,
+                illustrationsColumn,
+                coverColumn,
+                circulationColumn,
+                tableView,
+                books
+        );
 
         fileInput();
         tableView.refresh();
@@ -82,7 +92,18 @@ public class MainController {
     // task 1
     @FXML
     public void onFindBookButtonClick() throws IOException {
-        manageTableColumns();
+        tableManager(authorColumn,
+                titleColumn,
+                yearColumn,
+                pagesColumn,
+                publicationsColumn,
+                illustrationsColumn,
+                coverColumn,
+                circulationColumn,
+                tableView,
+                books
+        );
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("findBook-view.fxml"));
 
         scene = MainApplication.stage.getScene();
@@ -161,7 +182,7 @@ public class MainController {
 
 
     // task 3
-    public ObservableList<Book> getMax() {
+    /*public ObservableList<Book> getMax() {
         ObservableList<Book> res = FXCollections.observableArrayList();
         for (Book book : books) {
             if (res.isEmpty()) {
@@ -181,7 +202,7 @@ public class MainController {
         }
 
         return res;
-    }
+    }*/
 
     public void fileOutput() {
         FileChooser fileChooser = new FileChooser();
@@ -223,7 +244,18 @@ public class MainController {
 
     @FXML
     public void onAddBookButtonClick() throws IOException {
-        manageTableColumns();
+        tableManager(authorColumn,
+                titleColumn,
+                yearColumn,
+                pagesColumn,
+                publicationsColumn,
+                illustrationsColumn,
+                coverColumn,
+                circulationColumn,
+                tableView,
+                books
+        );
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBooks-view.fxml"));
 
         scene = MainApplication.stage.getScene();
@@ -243,5 +275,36 @@ public class MainController {
 
     public static ObservableList<Book> getBooks() {
         return books;
+    }
+
+    @FXML
+    public void onBiggestBookButtonClick() throws IOException {
+        tableManager(authorColumn,
+                titleColumn,
+                yearColumn,
+                pagesColumn,
+                publicationsColumn,
+                illustrationsColumn,
+                coverColumn,
+                circulationColumn,
+                tableView,
+                books
+        );
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("biggestIllustratedBook-view.fxml"));
+
+        scene = MainApplication.stage.getScene();
+
+        Stage biggestBookStage = new Stage();
+        stage = biggestBookStage;
+        Scene scene = new Scene(fxmlLoader.load());
+
+        biggestBookStage.initModality(Modality.WINDOW_MODAL);
+        biggestBookStage.initOwner(MainApplication.stage);
+
+        biggestBookStage.setTitle("Get the biggest books");
+        biggestBookStage.setResizable(false);
+        biggestBookStage.setScene(scene);
+        biggestBookStage.show();
     }
 }

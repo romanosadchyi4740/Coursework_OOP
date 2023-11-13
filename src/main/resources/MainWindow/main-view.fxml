@@ -22,7 +22,7 @@
       <Button fx:id="addBookButton" layoutX="27.0" layoutY="491.0" mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
       <Button fx:id="sortButton" layoutX="323.0" layoutY="416.0" mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
       <Button fx:id="findBookButton" layoutX="323.0" layoutY="455.0" mnemonicParsing="false" onAction="#onFindBookButtonClick" text="Find book" />
-      <Button fx:id="biggestBookButton" layoutX="323.0" layoutY="492.0" mnemonicParsing="false" text="Find the biggest book with illustrations" />
+      <Button fx:id="biggestBookButton" layoutX="323.0" layoutY="492.0" mnemonicParsing="false" onAction="#onBiggestBookButtonClick" text="Find the biggest book with illustrations" />
       <Button fx:id="loadTableButton" layoutX="25.0" layoutY="415.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
       <Button fx:id="saveTableButton" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
    </children>

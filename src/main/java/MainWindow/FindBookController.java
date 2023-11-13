@@ -10,11 +10,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class FindBookController {
-    ObservableList<Book> foundBooks = FXCollections.observableArrayList();
+    private ObservableList<Book> foundBooks = FXCollections.observableArrayList();
     public Stage stage;
     public Scene scene;
     @FXML
-    public TableView tableView;
+    public TableView<Book> tableView;
     @FXML
     public TableColumn<Book, String> authorColumn;
     @FXML
@@ -40,7 +40,17 @@ public class FindBookController {
 
     @FXML
     public void onFindButtonClick() {
-        manageTableColumns();
+        MainController.tableManager(authorColumn,
+                titleColumn,
+                yearColumn,
+                pagesColumn,
+                publicationsColumn,
+                illustrationsColumn,
+                coverColumn,
+                circulationColumn,
+                tableView,
+                foundBooks
+        );
 
         if (titleField.getText().isEmpty() && yearField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -141,16 +151,6 @@ public class FindBookController {
     }
 
     private void manageTableColumns() {
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-        yearColumn.setCellValueFactory(new PropertyValueFactory<>("publicationYear"));
-        pagesColumn.setCellValueFactory(new PropertyValueFactory<>("pagesNum"));
-        publicationsColumn.setCellValueFactory(new PropertyValueFactory<>("publicationNum"));
-        illustrationsColumn.setCellValueFactory(new PropertyValueFactory<>("hasImages"));
-        coverColumn.setCellValueFactory(new PropertyValueFactory<>("hasSolidCover"));
-        circulationColumn.setCellValueFactory(new PropertyValueFactory<>("circulation"));
 
-        tableView.setItems(foundBooks);
-        tableView.refresh();
     }
 }
