@@ -39,21 +39,27 @@ public class AddBookController {
         Alert alert = null;
         if (authorField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty field");
             alert.setContentText("\"Author\" field can't be empty!");
         } else if (titleField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty field");
             alert.setContentText("\"Title\" field can't be empty!");
         } else if (yearField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty field");
             alert.setContentText("\"Year\" field can't be empty!");
         } else if (pagesNumField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty field");
             alert.setContentText("\"Number of pages\" field can't be empty!");
         } else if (publicationsNumField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty field");
             alert.setContentText("\"Number of publications\" field can't be empty!");
         } else if (circulationField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty field");
             alert.setContentText("\"Circulation\" field can't be empty!");
         }
 
@@ -70,11 +76,13 @@ public class AddBookController {
         } catch (NumberFormatException e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: incompatible type");
                 alert.setContentText("\"Year\" field can only contain numbers!");
             }
         } catch (Exception e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: impossible value");
                 alert.setContentText("\"Year\" field can only contain numbers from range [1800; 2023]!");
             }
         }
@@ -88,11 +96,13 @@ public class AddBookController {
         } catch (NumberFormatException e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: incompatible type");
                 alert.setContentText("\"Number of pages\" field can only contain numbers!");
             }
         } catch (Exception e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: impossible value");
                 alert.setContentText("\"Number of pages\" field can only contain positive numbers!");
             }
         }
@@ -106,11 +116,13 @@ public class AddBookController {
         } catch (NumberFormatException e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: incompatible type");
                 alert.setContentText("\"Number of publications\" field can only contain numbers!");
             }
         } catch (Exception e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: impossible value");
                 alert.setContentText("\"Number of publications\" field can only contain positive numbers!");
             }
         }
@@ -126,11 +138,13 @@ public class AddBookController {
         } catch (NumberFormatException e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: incompatible type");
                 alert.setContentText("\"Circulation\" field can only contain numbers!");
             }
         } catch (Exception e) {
             if (alert == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: impossible value");
                 alert.setContentText("\"Circulation\" field can only contain POSITIVE numbers!");
             }
         }

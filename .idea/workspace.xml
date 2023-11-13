@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f0748e1-32dc-46fe-95ce-6c142df4a712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainWindow/BiggestIllustratedBookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/biggestIllustratedBook-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MainWindow/SmallestBookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/smallestBook-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/BiggestIllustratedBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/BiggestIllustratedBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/FindBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/FindBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" afterDir="false" />
@@ -110,7 +112,7 @@
       <workItem from="1699692670468" duration="7000" />
       <workItem from="1699734505531" duration="824000" />
       <workItem from="1699774741670" duration="14708000" />
-      <workItem from="1699858287260" duration="303000" />
+      <workItem from="1699858287260" duration="6705000" />
     </task>
     <task id="LOCAL-00001" summary="Add window opens, but has no functionality yet.">
       <option name="closed" value="true" />
@@ -152,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699823818193</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Max book is searched properly">
+      <option name="closed" value="true" />
+      <created>1699858861073</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699858861073</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +185,8 @@
     <MESSAGE value="Next step will be replacing addBook scene with addBook stage. Also still have to create error handling and fix 3 functions." />
     <MESSAGE value="Add book window works just fine. Still have to create some missing functionality and fix sorting." />
     <MESSAGE value="Find book window works properly." />
-    <option name="LAST_COMMIT_MESSAGE" value="Find book window works properly." />
+    <MESSAGE value="Max book is searched pro" />
+    <MESSAGE value="Max book is searched properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Max book is searched properly" />
   </component>
 </project>

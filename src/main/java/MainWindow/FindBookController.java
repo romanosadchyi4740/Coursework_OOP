@@ -14,23 +14,23 @@ public class FindBookController {
     public Stage stage;
     public Scene scene;
     @FXML
-    public TableView<Book> tableView;
+    private TableView<Book> tableView;
     @FXML
-    public TableColumn<Book, String> authorColumn;
+    private TableColumn<Book, String> authorColumn;
     @FXML
-    public TableColumn<Book, String> titleColumn;
+    private TableColumn<Book, String> titleColumn;
     @FXML
-    public TableColumn<Book, Integer> yearColumn;
+    private TableColumn<Book, Integer> yearColumn;
     @FXML
-    public TableColumn<Book, Integer> pagesColumn;
+    private TableColumn<Book, Integer> pagesColumn;
     @FXML
-    public TableColumn<Book, Integer> publicationsColumn;
+    private TableColumn<Book, Integer> publicationsColumn;
     @FXML
-    public TableColumn<Book, Boolean> illustrationsColumn;
+    private TableColumn<Book, Boolean> illustrationsColumn;
     @FXML
-    public TableColumn<Book, Boolean> coverColumn;
+    private TableColumn<Book, Boolean> coverColumn;
     @FXML
-    public TableColumn<Book, Integer> circulationColumn;
+    private TableColumn<Book, Integer> circulationColumn;
     @FXML
     private TextField titleField;
     @FXML
@@ -52,8 +52,10 @@ public class FindBookController {
                 foundBooks
         );
 
+        Alert alert;
         if (titleField.getText().isEmpty() && yearField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error: empty fields");
             alert.setContentText("Both text fields can't be empty!");
             alert.show();
         } else if (titleField.getText().isEmpty()) {
@@ -64,7 +66,8 @@ public class FindBookController {
                 foundBooks.clear();
                 foundBooks.addAll(findBook(year));
             } catch (NumberFormatException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error: incompatible type");
                 alert.setContentText("\"Year\" field can only contain numbers!");
                 alert.show();
             }
@@ -80,7 +83,8 @@ public class FindBookController {
                 foundBooks.clear();
                 foundBooks.addAll(findBook(title, year));
             } catch (NumberFormatException e) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText("Warning: incompatible type");
                 alert.setContentText("\"Year\" field can only contain numbers!\nSearch will be executed by title.");
                 alert.show();
 
@@ -148,9 +152,5 @@ public class FindBookController {
         }
 
         return res;
-    }
-
-    private void manageTableColumns() {
-
     }
 }

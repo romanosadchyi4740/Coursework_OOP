@@ -51,6 +51,10 @@ public class MainController {
     private Button findBookButton;
     @FXML
     private Button biggestBookButton;
+    @FXML
+    private Button clearButton;
+    @FXML
+    private Button smallestBookButton;
 
     public static void tableManager(TableColumn<Book, String> authorColumn, TableColumn<Book, String> titleColumn, TableColumn<Book, Integer> yearColumn, TableColumn<Book, Integer> pagesColumn, TableColumn<Book, Integer> publicationsColumn, TableColumn<Book, Boolean> illustrationsColumn, TableColumn<Book, Boolean> coverColumn, TableColumn<Book, Integer> circulationColumn, TableView<Book> tableView, ObservableList<Book> books) {
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
@@ -131,7 +135,8 @@ public class MainController {
             res.addAll(groups.get(i));
         }
 
-        books = res;
+        books.clear();
+        books.addAll(res);
     }
 
     public ObservableList<ObservableList<Book>> divideToGroups(ObservableList<Book> books) {
@@ -156,6 +161,10 @@ public class MainController {
     }
 
     protected ObservableList<Book> quickSort(ObservableList<Book> list) {
+        if (list.size() <= 1) {
+            return list;
+        }
+
         ObservableList<Book> sorted;
         ObservableList<Book> smaller = FXCollections.observableArrayList();
         ObservableList<Book> bigger = FXCollections.observableArrayList();
@@ -179,30 +188,6 @@ public class MainController {
 
         return sorted;
     }
-
-
-    // task 3
-    /*public ObservableList<Book> getMax() {
-        ObservableList<Book> res = FXCollections.observableArrayList();
-        for (Book book : books) {
-            if (res.isEmpty()) {
-                if (book.isHasImages()) {
-                    res.add(book);
-                } else {
-                    continue;
-                }
-            }
-
-            if (book.isHasImages() && book.getPagesNum() == res.get(0).getPagesNum()) {
-                res.add(book);
-            } else if (book.isHasImages() && book.getPagesNum() > res.get(0).getPagesNum()) {
-                res.clear();
-                res.add(book);
-            }
-        }
-
-        return res;
-    }*/
 
     public void fileOutput() {
         FileChooser fileChooser = new FileChooser();
@@ -267,7 +252,7 @@ public class MainController {
         addBookStage.initModality(Modality.WINDOW_MODAL);
         addBookStage.initOwner(MainApplication.stage);
 
-        addBookStage.setTitle("Add a book");
+        addBookStage.setTitle("New book");
         addBookStage.setResizable(false);
         addBookStage.setScene(scene);
         addBookStage.show();
@@ -302,9 +287,45 @@ public class MainController {
         biggestBookStage.initModality(Modality.WINDOW_MODAL);
         biggestBookStage.initOwner(MainApplication.stage);
 
-        biggestBookStage.setTitle("Get the biggest books");
+        biggestBookStage.setTitle("The biggest books");
         biggestBookStage.setResizable(false);
         biggestBookStage.setScene(scene);
         biggestBookStage.show();
+    }
+
+    @FXML
+    public void onClearButtonClick() {
+        books.clear();
+    }
+
+    @FXML
+    public void onSmallestBookButtonClick() throws IOException {
+        tableManager(authorColumn,
+                titleColumn,
+                yearColumn,
+                pagesColumn,
+                publicationsColumn,
+                illustrationsColumn,
+                coverColumn,
+                circulationColumn,
+                tableView,
+                books
+        );
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("smallestBook-view.fxml"));
+
+        scene = MainApplication.stage.getScene();
+
+        Stage smallestBookStage = new Stage();
+        stage = smallestBookStage;
+        Scene scene = new Scene(fxmlLoader.load());
+
+        smallestBookStage.initModality(Modality.WINDOW_MODAL);
+        smallestBookStage.initOwner(MainApplication.stage);
+
+        smallestBookStage.setTitle("The smallest and the most popular books");
+        smallestBookStage.setResizable(false);
+        smallestBookStage.setScene(scene);
+        smallestBookStage.show();
     }
 }

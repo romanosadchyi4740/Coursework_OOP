@@ -25,5 +25,7 @@
       <Button fx:id="biggestBookButton" layoutX="323.0" layoutY="492.0" mnemonicParsing="false" onAction="#onBiggestBookButtonClick" text="Find the biggest book with illustrations" />
       <Button fx:id="loadTableButton" layoutX="25.0" layoutY="415.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
       <Button fx:id="saveTableButton" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
+      <Button fx:id="clearButton" layoutX="683.0" layoutY="492.0" mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear" />
+      <Button fx:id="smallestBookButton" layoutX="683.0" layoutY="416.0" mnemonicParsing="false" onAction="#onSmallestBookButtonClick" prefHeight="59.0" prefWidth="148.0" text="Find the smallest book with biggest circulation " wrapText="true" />
    </children>
 </AnchorPane>

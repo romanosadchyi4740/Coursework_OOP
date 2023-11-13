@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class BiggestIllustratedBookController {
     private ObservableList<Book> biggestIllustratedBooks = FXCollections.observableArrayList();
@@ -57,9 +56,8 @@ public class BiggestIllustratedBookController {
             if (res.isEmpty()) {
                 if (book.isHasImages()) {
                     res.add(book);
-                } else {
-                    continue;
                 }
+                continue;
             }
 
             if (book.isHasImages() && book.getPagesNum() == res.get(0).getPagesNum()) {
