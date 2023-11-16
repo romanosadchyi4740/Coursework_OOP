@@ -1,0 +1,51 @@
+.button{
+    -fx-font-family: "Times New Roman";
+    -fx-background-color: #AF8051;
+    -fx-alignment: center;
+    -fx-text-fill: #F1FDD6;
+    -fx-font-size: 14;
+}
+
+.table-view {
+    -fx-background-color: #F8ECD4;
+}
+
+.table-cell {
+    -fx-border-color: #F4DABF;
+    -fx-text-fill: #000000;
+    -fx-font-size:12;
+    -fx-font-family: "Times New Roman";
+}
+
+.table-row-cell:even {
+    -fx-background-color: #FEF9EF;
+}
+
+.table-row-cell:even:selected {
+    -fx-background-color: #FDF2E0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FDF2E0;
+}
+
+.table-row-cell:odd:selected {
+    -fx-background-color: #FEF9EF;
+}
+
+.table-view .column-header
+{
+    -fx-background-color: #F9E6CE;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 12;
+}
+
+.root {
+    -fx-background-color: #F9F5C8;
+}
+
+.text-field {
+    -fx-background-color: #FEF7EC;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 14;
+}

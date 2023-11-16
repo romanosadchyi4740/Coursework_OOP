@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -118,6 +119,8 @@ public class MainController {
 
         findBookStage.initModality(Modality.WINDOW_MODAL);
         findBookStage.initOwner(MainApplication.stage);
+        findBookStage.getIcons().add(new Image(
+                "C:\\Users\\Роман3071\\IdeaProjects\\CourseworkFX\\src\\main\\resources\\Pictures\\img.png"));
 
         findBookStage.setTitle("Find books");
         findBookStage.setResizable(false);
@@ -251,6 +254,8 @@ public class MainController {
 
         addBookStage.initModality(Modality.WINDOW_MODAL);
         addBookStage.initOwner(MainApplication.stage);
+        addBookStage.getIcons().add(new Image(
+                "C:\\Users\\Роман3071\\IdeaProjects\\CourseworkFX\\src\\main\\resources\\Pictures\\img.png"));
 
         addBookStage.setTitle("New book");
         addBookStage.setResizable(false);
@@ -286,6 +291,8 @@ public class MainController {
 
         biggestBookStage.initModality(Modality.WINDOW_MODAL);
         biggestBookStage.initOwner(MainApplication.stage);
+        biggestBookStage.getIcons().add(new Image(
+                "C:\\Users\\Роман3071\\IdeaProjects\\CourseworkFX\\src\\main\\resources\\Pictures\\img.png"));
 
         biggestBookStage.setTitle("The biggest books");
         biggestBookStage.setResizable(false);
@@ -322,6 +329,8 @@ public class MainController {
 
         smallestBookStage.initModality(Modality.WINDOW_MODAL);
         smallestBookStage.initOwner(MainApplication.stage);
+        smallestBookStage.getIcons().add(new Image(
+                "C:\\Users\\Роман3071\\IdeaProjects\\CourseworkFX\\src\\main\\resources\\Pictures\\img.png"));
 
         smallestBookStage.setTitle("The smallest and the most popular books");
         smallestBookStage.setResizable(false);

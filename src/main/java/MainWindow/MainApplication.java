@@ -3,6 +3,7 @@ package MainWindow;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,6 +17,8 @@ public class MainApplication extends Application {
 
         MainApplication.stage = stage;
         stage.setResizable(false);
+        stage.getIcons().add(new Image(
+                "C:\\Users\\Роман3071\\IdeaProjects\\CourseworkFX\\src\\main\\resources\\Pictures\\img.png"));
 
         stage.setTitle("Main window");
         stage.setScene(scene);

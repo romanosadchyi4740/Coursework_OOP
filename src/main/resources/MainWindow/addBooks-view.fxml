@@ -5,16 +5,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="342.0" prefWidth="184.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindow.AddBookController">
+<AnchorPane prefHeight="342.0" prefWidth="184.0" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindow.AddBookController">
    <children>
-      <TextField fx:id="authorField" layoutX="14.0" layoutY="14.0" promptText="Autor's name" />
-      <TextField fx:id="titleField" layoutX="15.0" layoutY="51.0" promptText="Book's title" />
-      <TextField fx:id="yearField" layoutX="16.0" layoutY="88.0" promptText="Year of publication" />
-      <TextField fx:id="pagesNumField" layoutX="17.0" layoutY="125.0" promptText="Number of pages" />
-      <TextField fx:id="publicationsNumField" layoutX="17.0" layoutY="161.0" prefHeight="26.0" prefWidth="150.0" promptText="Number of publications" />
+      <TextField fx:id="authorField" layoutX="14.0" layoutY="14.0" prefWidth="150.0" promptText="Autor's name" />
+      <TextField fx:id="titleField" layoutX="15.0" layoutY="51.0" prefWidth="150.0" promptText="Book's title" />
+      <TextField fx:id="yearField" layoutX="16.0" layoutY="88.0" prefWidth="150.0" promptText="Year of publication" />
+      <TextField fx:id="pagesNumField" layoutX="17.0" layoutY="125.0" prefWidth="150.0" promptText="Number of pages" />
+      <TextField fx:id="publicationsNumField" layoutX="17.0" layoutY="161.0" prefHeight="26.0" prefWidth="150.0" promptText="Number of publication" />
       <CheckBox fx:id="hasImagesCheckBox" layoutX="17.0" layoutY="200.0" mnemonicParsing="false" text="Has images" />
       <CheckBox fx:id="hasSolidCoverCheckBox" layoutX="17.0" layoutY="227.0" mnemonicParsing="false" text="Has solid cover" />
-      <TextField fx:id="circulationField" layoutX="17.0" layoutY="260.0" promptText="Circulation" />
+      <TextField fx:id="circulationField" layoutX="17.0" layoutY="260.0" prefWidth="150.0" promptText="Circulation" />
       <Button fx:id="addButton" layoutX="54.0" layoutY="302.0" mnemonicParsing="false" onAction="#onAddButtonClick" text="Add book" />
    </children>
 </AnchorPane>
