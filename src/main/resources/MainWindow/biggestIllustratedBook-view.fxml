@@ -16,7 +16,7 @@
                 <TableColumn fx:id="publicationsColumn" prefWidth="109.60003662109375" text="Publication number" />
                 <TableColumn fx:id="illustrationsColumn" prefWidth="70.39990234375" text="Illustrations" />
                 <TableColumn fx:id="coverColumn" prefWidth="63.199951171875" text="Hard cover" />
-                <TableColumn fx:id="circulationColumn" prefWidth="72.7999267578125" text="Circulation" />
+                <TableColumn fx:id="circulationColumn" prefWidth="67.2000732421875" text="Circulation" />
             </columns>
         </TableView>
       <Button fx:id="getMaxButton" layoutX="391.0" layoutY="450.0" mnemonicParsing="false" onAction="#onGetMaxButtonClick" text="Get biggest illustrated book" />

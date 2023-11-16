@@ -2,7 +2,6 @@ package MainWindow;
 
 import common.Book;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,11 +9,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class AddBookController {
     public Stage stage;
     public Scene scene;
+
+    // Усі візуальні об'єкти вікна додавання книг
     @FXML
     private TextField authorField;
     @FXML
@@ -34,8 +33,11 @@ public class AddBookController {
     @FXML
     private Button addButton;
 
+    // Функція, яка викликається при натисканні на кнопку
     @FXML
     public void onAddButtonClick() {
+        // Спочатку здійснюється перевірка на те, чи є незаповнені поля. Якщо такі поля є то на екрані з'являється
+        // вікно помилки, яке підказує користувачу, які поля він пропустив.
         Alert alert = null;
         if (authorField.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -63,10 +65,14 @@ public class AddBookController {
             alert.setContentText("\"Circulation\" field can't be empty!");
         }
 
+        // Значення стрічкових полів дістаємо просто використовуючи необхідний метод до відповідних полів введення
         String author = authorField.getText();
         String title = titleField.getText();
         int year = 0, pagesNum = 0, publications = 0, circulation = 0;
 
+        // Значення числових полів спочатку необхідно перевірити на те, чи справді вони є числами.
+        // (Якщо Integer.parseInt() викине виняток, то записуємо інформацію, яка має бути виведена у вікні помилки).
+        // Також здійснюється перевірка на логічну правильність даних.
         try {
             year = Integer.parseInt(yearField.getText());
 
@@ -127,6 +133,7 @@ public class AddBookController {
             }
         }
 
+        // Отримання значень логічних полів за допомогою чек-боксів
         boolean hasImages = hasImagesCheckBox.isSelected();
         boolean hasSolidCover = hasSolidCoverCheckBox.isSelected();
 
@@ -149,19 +156,17 @@ public class AddBookController {
             }
         }
 
+        // Якщо об'єкт вікна помилки був створений (!= null), то виводиться вікно повідомлення про помилку, яке підкаже
+        // користувачу, як виправити свою помилку. Виконання функції завершується.
         if (alert != null) {
             alert.show();
             return;
         }
 
+        // Якщо ж помилок не було, то створюється нова книжка, й додається до загального списку.
         Book book = new Book(author, title, year, pagesNum, publications, hasImages, hasSolidCover, circulation);
         MainController.getBooks().add(book);
+        // Після успішного додавання книги вікно закривається, й стає активним головне вікно
         MainController.stage.close();
-
-        MainApplication.stage.getScene();
-
-        MainApplication.stage.setTitle("Main window");
-        MainApplication.stage.setScene(MainController.scene);
-        MainApplication.stage.show();
     }
 }

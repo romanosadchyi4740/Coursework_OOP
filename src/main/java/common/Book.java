@@ -1,7 +1,9 @@
 package common;
 
+// імпорт усіх класів, пов'язаних із вводом та виводом
 import java.io.*;
 
+// extends - наслідування від класу; implements - наслідування від інтерфейсу
 public class Book implements Externalizable {
     private String author;
     private String title;
@@ -12,10 +14,12 @@ public class Book implements Externalizable {
     private boolean hasSolidCover;
     private int circulation;
 
+    // Конструктор за замовчуванням
     public Book() {
 
     }
 
+    // Конструктор, який ініціалізує усі поля класу
     public Book(String author,
                 String title,
                 int publicationYear,
@@ -34,6 +38,7 @@ public class Book implements Externalizable {
         this.circulation = circulation;
     }
 
+    // Якщо змінна isMove = true, то працює в якості конструктора переміщень, інакше, як конструктор копій
     public Book(Book original, boolean isMove) {
         this.author = original.author;
         this.title = original.title;
@@ -49,6 +54,7 @@ public class Book implements Externalizable {
         }
     }
 
+    // Гетери (селектори) та сетери (модифікатори) для
     public String getAuthor() {
         return author;
     }
@@ -113,6 +119,13 @@ public class Book implements Externalizable {
         this.circulation = circulation;
     }
 
+    // У Java для того, щоб зробити об'єкт класу доступним для серіалізації необхідно унаслідувати цей клас від
+    // інтерфейсу Serializable (тоді не потрібно перевизначати жодних методів, оскільки інтерфейс працює лише як певна
+    // мітка, що цей клас можна серіалізувати). В даному випадку Java надасть механізм серіалізації за замовчуванням.
+    // У даному випадку я унаслідував клас від інтерфейсу Externalizable, який надає можливість самостійно описати
+    // механізм серіалізації, щоб виконати завдання, пов'язане з перевизначенням операторів вводу та виводу.
+
+    // Перевизначення методу інтерфейсу Externalizable для запису об'єкта у файл
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeObject(author);
@@ -125,6 +138,7 @@ public class Book implements Externalizable {
         out.writeInt(circulation);
     }
 
+    // Перевизначення методу інтерфейсу Externalizable для зчитування об'єкта з файлу
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         author = (String) in.readObject();

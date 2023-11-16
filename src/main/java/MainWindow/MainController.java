@@ -18,12 +18,24 @@ import javafx.stage.Stage;
 import java.io.*;
 
 public class MainController {
+    // Масив для зберігання усіх створених об'єктів Book. У Java, звісно, є можливість створити "традиційний" масив
+    // (Book[]), але бібліотека java.util.* надає також дуже зручний клас-замінник звичайних масивів, який називається
+    // ArrayList. Він є Generic (шаблонним) класом, що дає можливість зберігати в ньому дані будь-яких типів, окрім
+    // примітивів (замість них для вирішення цієї проблеми використовуються стандартні класи обгортки примітивних типів)
+    // В даному випадку використовується клас ObservableList. Він містить той самий функціонал, що й ArrayList, але є
+    // створеним спеціально для фреймворку JavaFX, і виконує одну важливу функцію, якої немає у ArrayList: щоразу,
+    // коли його вміст змінюється, UI змінює свій стан автоматично, без жодних додаткових зусиль з боку програміста.
     private static ObservableList<Book> books = FXCollections.observableArrayList();
     // main window elements
     public static Stage stage;
     public static Scene scene;
+
+    // Усі поля з анотацією @FXML, ініціалізуються автоматично за допомогою так званого Field Injection. Це значить, що
+    // вони ініціалізуються одразу після створення відповідних об'єктів у вікні програми.
     @FXML
-    private TableView<Book> tableView;
+    private TableView<Book> tableView; // TableView<Book> - таблиця, яка містить об'єкти Book
+
+    // TableColumn - колонка таблиці TableView
     @FXML
     private TableColumn<Book, String> authorColumn;
     @FXML
@@ -40,6 +52,8 @@ public class MainController {
     private TableColumn<Book, Boolean> coverColumn;
     @FXML
     private TableColumn<Book, Integer> circulationColumn;
+
+    // Кнопки головного вікна
     @FXML
     private Button loadTableButton;
     @FXML
@@ -57,7 +71,20 @@ public class MainController {
     @FXML
     private Button smallestBookButton;
 
-    public static void tableManager(TableColumn<Book, String> authorColumn, TableColumn<Book, String> titleColumn, TableColumn<Book, Integer> yearColumn, TableColumn<Book, Integer> pagesColumn, TableColumn<Book, Integer> publicationsColumn, TableColumn<Book, Boolean> illustrationsColumn, TableColumn<Book, Boolean> coverColumn, TableColumn<Book, Integer> circulationColumn, TableView<Book> tableView, ObservableList<Book> books) {
+    // Для початку роботи з таблицею потрібно вказати, які саме дані повинен містити кожен стовпець.
+    // new PropertyValueFactory<>("field") означає, що дана колонка буде містити інформацію про вміст поля field класу,
+    // зазначеного при створенні колонки. "field" має мати таку ж назву як і відповідне поле класу
+    // (але починатися з малої літери)
+    public static void tableManager(TableColumn<Book, String> authorColumn,
+                                    TableColumn<Book, String> titleColumn,
+                                    TableColumn<Book, Integer> yearColumn,
+                                    TableColumn<Book, Integer> pagesColumn,
+                                    TableColumn<Book, Integer> publicationsColumn,
+                                    TableColumn<Book, Boolean> illustrationsColumn,
+                                    TableColumn<Book, Boolean> coverColumn,
+                                    TableColumn<Book, Integer> circulationColumn,
+                                    TableView<Book> tableView,
+                                    ObservableList<Book> books) {
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("publicationYear"));
@@ -71,6 +98,9 @@ public class MainController {
         tableView.refresh();
     }
 
+    // Методи, позначені @FXML, можна використовувати як поведінку при настанні заданої події.
+
+    // Метод, який відбувається при натисканні кнопки читання з файлу
     @FXML
     public void readFromFile() throws IOException, ClassNotFoundException {
         tableManager(authorColumn,
@@ -86,15 +116,16 @@ public class MainController {
         );
 
         fileInput();
-        tableView.refresh();
     }
 
+    // Метод, який відбувається при натисканні кнопки запису у файл
     @FXML
     public void saveToFile() {
         fileOutput();
     }
 
-    // task 1
+    // Метод, який відбувається при натисканні кнопки пошуку книги. Відкриває вікно пошуку. (Код створення кожного
+    // нового дочірнього вікна ідентичний, тобто всі інші функції, які відкривають нове вікно працюють точно так само)
     @FXML
     public void onFindBookButtonClick() throws IOException {
         tableManager(authorColumn,
@@ -109,26 +140,28 @@ public class MainController {
                 books
         );
 
+        // Цей рядок відповідає за створення вікна за макетом, описаним у файлі findBook-view.fxml
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("findBook-view.fxml"));
-
-        scene = MainApplication.stage.getScene();
 
         Stage findBookStage = new Stage();
         stage = findBookStage;
         Scene scene = new Scene(fxmlLoader.load());
 
+        // Блокує доступ до головного вікна програми, поки не закриється дочірнє
         findBookStage.initModality(Modality.WINDOW_MODAL);
         findBookStage.initOwner(MainApplication.stage);
+        // Втановлення іконки вікна
         findBookStage.getIcons().add(new Image(
                 "C:\\Users\\Роман3071\\IdeaProjects\\CourseworkFX\\src\\main\\resources\\Pictures\\img.png"));
 
+        // Додаткові налаштування та вивід вікна
         findBookStage.setTitle("Find books");
         findBookStage.setResizable(false);
         findBookStage.setScene(scene);
         findBookStage.show();
     }
 
-    // task 2
+    // Метод, який відбувається при натисканні кнопки сортування
     @FXML
     public void onSortButtonClick() {
         ObservableList<Book> res = FXCollections.observableArrayList();
@@ -142,6 +175,7 @@ public class MainController {
         books.addAll(res);
     }
 
+    // Поділ основного масиву на групи (підмасиви) з однаковими авторами
     public ObservableList<ObservableList<Book>> divideToGroups(ObservableList<Book> books) {
         ObservableList<ObservableList<Book>> res = FXCollections.observableArrayList();
         for (Book book : books) {
@@ -163,6 +197,7 @@ public class MainController {
         return res;
     }
 
+    // Швидке сортування масиву книг за кількістю сторінок
     protected ObservableList<Book> quickSort(ObservableList<Book> list) {
         if (list.size() <= 1) {
             return list;
@@ -192,17 +227,25 @@ public class MainController {
         return sorted;
     }
 
+    // Запис масиву книг у файл
     public void fileOutput() {
+        // Клас FileChooser надає можливість вибрати файл за допомогою стандартного провідника
+        // Це зменшує ймовірність помилки під час використання програми, оскільки так користувач не може помилитися
+        // набираючи шлях до файлу, а натомість використовує уже звичний та зручний спосіб пошуку файлів
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File("C:\\Programming\\Coursework"));
         File file = fileChooser.showOpenDialog(MainApplication.stage);
 
+        // Тут використано механізм try-catch з ресурсами - це покращений try-catch, який автоматично закриває усі
+        // потоки, створені в дужках після ключового слова try. Тобто, навіть у випадку помилки, використані ресурси
+        // звільняються.
         try (ObjectOutputStream outputStream = new ObjectOutputStream(
                 new FileOutputStream(file)
         )) {
             outputStream.writeInt(books.size());
 
             for (Book book : books) {
+                // використання механізму серіалізації, описаного у самому класі Book
                 book.writeExternal(outputStream);
             }
         } catch (IOException e) {
@@ -210,7 +253,8 @@ public class MainController {
         }
     }
 
-    public void fileInput() throws IOException, ClassNotFoundException {
+    // Читання масиву книг із файлу
+    public void fileInput() throws ClassNotFoundException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File("C:\\Programming\\Coursework"));
         File file = fileChooser.showOpenDialog(MainApplication.stage);
@@ -222,6 +266,7 @@ public class MainController {
             int size = inputStream.readInt();
             for (int i = 0; i < size; i++) {
                 Book newBook = new Book();
+                // використання механізму серіалізації, описаного у самому класі Book
                 newBook.readExternal(inputStream);
                 books.add(newBook);
             }
@@ -230,6 +275,8 @@ public class MainController {
         }
     }
 
+    // Метод, який відбувається при натисканні кнопки додавання книги.
+    // Відкриває відповідне вікно.
     @FXML
     public void onAddBookButtonClick() throws IOException {
         tableManager(authorColumn,
@@ -267,6 +314,8 @@ public class MainController {
         return books;
     }
 
+    // Метод, який відбувається при натисканні кнопки знаходження найбільшої ілюстрованої книги.
+    // Відкриває відповідне вікно.
     @FXML
     public void onBiggestBookButtonClick() throws IOException {
         tableManager(authorColumn,
@@ -300,11 +349,14 @@ public class MainController {
         biggestBookStage.show();
     }
 
+    // Метод, який очищує вміст таблиці
     @FXML
     public void onClearButtonClick() {
         books.clear();
     }
 
+    // Метод, який відбувається при натисканні кнопки знаходження найменшої книги та найпопулярнішої книги за рік.
+    // Відкриває відповідне вікно.
     @FXML
     public void onSmallestBookButtonClick() throws IOException {
         tableManager(authorColumn,
