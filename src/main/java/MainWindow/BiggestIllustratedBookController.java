@@ -58,7 +58,7 @@ public class BiggestIllustratedBookController {
         ObservableList<Book> res = FXCollections.observableArrayList();
         ObservableList<Book> books = MainController.getBooks();
         for (Book book : books) {
-            // Якщо масив res порожній, і рік книги збігається з вказаним, то додаємо цю книгу до res
+            // Якщо масив res порожній, і книга ілюстрована, то додаємо цю книгу до res
             if (res.isEmpty()) {
                 if (book.isHasImages()) {
                     res.add(book);

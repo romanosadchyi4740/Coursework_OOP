@@ -150,4 +150,17 @@ public class Book implements Externalizable {
         hasSolidCover = in.readBoolean();
         circulation = in.readInt();
     }
+
+    // Перевизначення методу toString()
+    @Override
+    public String toString() {
+        return "Author: " + author + '\n' +
+                "Title: " + title + '\n' +
+                "Year of publication: " + publicationYear + '\n' +
+                "Number of pages" + pagesNum + '\n' +
+                "Publication number: " + publicationNum + '\n' +
+                "Is illustrated: " + hasImages + '\n' +
+                "Has solid cover: " + hasSolidCover + '\n' +
+                "Circulation: " + circulation;
+    }
 }

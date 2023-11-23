@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="945.0" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindow.MainController">
    <children>
-      <TableView fx:id="tableView" layoutX="14.0" layoutY="21.0" prefHeight="353.0" prefWidth="919.0">
+      <TableView fx:id="tableView" layoutX="13.0" layoutY="35.0" prefHeight="353.0" prefWidth="919.0">
         <columns>
             <TableColumn fx:id="authorColumn" prefWidth="200.00002765655518" text="Author" />
             <TableColumn fx:id="titleColumn" prefWidth="251.19996643066406" text="Title" />
@@ -18,14 +22,44 @@
             <TableColumn fx:id="coverColumn" prefWidth="63.199951171875" text="Hard cover" />
             <TableColumn fx:id="circulationColumn" prefWidth="67.2000732421875" text="Circulation" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
+                  <MenuItem mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear" />
+                  <MenuItem mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
-      <Button fx:id="addBookButton" layoutX="27.0" layoutY="491.0" mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
-      <Button fx:id="sortButton" layoutX="323.0" layoutY="416.0" mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
-      <Button fx:id="findBookButton" layoutX="323.0" layoutY="455.0" mnemonicParsing="false" onAction="#onFindBookButtonClick" text="Find book" />
-      <Button fx:id="biggestBookButton" layoutX="323.0" layoutY="492.0" mnemonicParsing="false" onAction="#onBiggestBookButtonClick" text="Find the biggest book with illustrations" />
-      <Button fx:id="loadTableButton" layoutX="25.0" layoutY="415.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
-      <Button fx:id="saveTableButton" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
-      <Button fx:id="clearButton" layoutX="683.0" layoutY="492.0" mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear" />
-      <Button fx:id="smallestBookButton" layoutX="683.0" layoutY="419.0" mnemonicParsing="false" onAction="#onSmallestBookButtonClick" prefHeight="56.0" prefWidth="190.0" text="Find the smallest book and most popular book of the year" wrapText="true" />
+      <Button fx:id="addBookButton" layoutX="27.0" layoutY="505.0" mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
+      <Button fx:id="sortButton" layoutX="323.0" layoutY="430.0" mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
+      <Button fx:id="findBookButton" layoutX="323.0" layoutY="469.0" mnemonicParsing="false" onAction="#onFindBookButtonClick" text="Find book" />
+      <Button fx:id="biggestBookButton" layoutX="323.0" layoutY="506.0" mnemonicParsing="false" onAction="#onBiggestBookButtonClick" text="Find the biggest book with illustrations" />
+      <Button fx:id="loadTableButton" layoutX="25.0" layoutY="429.0" mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
+      <Button fx:id="saveTableButton" layoutX="26.0" layoutY="468.0" mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
+      <Button fx:id="clearButton" layoutX="683.0" layoutY="506.0" mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear" />
+      <Button fx:id="smallestBookButton" layoutX="683.0" layoutY="433.0" mnemonicParsing="false" onAction="#onSmallestBookButtonClick" prefHeight="56.0" prefWidth="190.0" text="Find the smallest book and most popular book of the year" wrapText="true" />
+      <Button fx:id="deleteButton" layoutX="817.0" layoutY="505.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" />
+      <MenuBar layoutY="1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#readFromFile" text="Load table" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveToFile" text="Save table" />
+              <MenuItem mnemonicParsing="false" onAction="#onCloseButtonClick" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onAddBookButtonClick" text="Add book" />
+                  <MenuItem mnemonicParsing="false" onAction="#onSortButtonClick" text="Sort by number of pages" />
+                  <MenuItem mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

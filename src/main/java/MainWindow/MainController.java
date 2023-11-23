@@ -21,8 +21,8 @@ public class MainController {
     // Масив для зберігання усіх створених об'єктів Book. У Java, звісно, є можливість створити "традиційний" масив
     // (Book[]), але бібліотека java.util.* надає також дуже зручний клас-замінник звичайних масивів, який називається
     // ArrayList. Він є Generic (шаблонним) класом, що дає можливість зберігати в ньому дані будь-яких типів, окрім
-    // примітивів (замість них для вирішення цієї проблеми використовуються стандартні класи обгортки примітивних типів)
-    // В даному випадку використовується клас ObservableList. Він містить той самий функціонал, що й ArrayList, але є
+    // примітивів (замість них для розв'язання цієї проблеми використовуються стандартні класи обгортки примітивних типів)
+    // В такій ситуації використовується клас ObservableList. Він містить той самий функціонал, що й ArrayList, але є
     // створеним спеціально для фреймворку JavaFX, і виконує одну важливу функцію, якої немає у ArrayList: щоразу,
     // коли його вміст змінюється, UI змінює свій стан автоматично, без жодних додаткових зусиль з боку програміста.
     private static ObservableList<Book> books = FXCollections.observableArrayList();
@@ -70,6 +70,8 @@ public class MainController {
     private Button clearButton;
     @FXML
     private Button smallestBookButton;
+    @FXML
+    private Button deleteButton;
 
     // Для початку роботи з таблицею потрібно вказати, які саме дані повинен містити кожен стовпець.
     // new PropertyValueFactory<>("field") означає, що дана колонка буде містити інформацію про вміст поля field класу,
@@ -388,5 +390,19 @@ public class MainController {
         smallestBookStage.setResizable(false);
         smallestBookStage.setScene(scene);
         smallestBookStage.show();
+    }
+
+    // Метод, який відбувається при натисканні кнопки видалення книги
+    @FXML
+    public void onDeleteButtonClick() {
+        // Зчитування вибраної на таблиці книги
+        Book book = tableView.getSelectionModel().getSelectedItem();
+        books.remove(book);
+    }
+
+    // Метод, який відбувається при натисканні кнопки закривання вікна
+    @FXML
+    public void onCloseButtonClick() {
+        MainApplication.stage.close();
     }
 }

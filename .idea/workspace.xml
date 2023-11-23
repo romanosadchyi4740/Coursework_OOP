@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0748e1-32dc-46fe-95ce-6c142df4a712" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/AddBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/BiggestIllustratedBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/BiggestIllustratedBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/FindBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/FindBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainWindow/SmallestBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainWindow/SmallestBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/biggestIllustratedBook-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/biggestIllustratedBook-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/findBook-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/findBook-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainWindow/smallestBook-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainWindow/smallestBook-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +52,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -127,7 +122,16 @@
       <workItem from="1699980993426" duration="274000" />
       <workItem from="1700050327998" duration="134000" />
       <workItem from="1700077663938" duration="3067000" />
-      <workItem from="1700124659527" duration="15135000" />
+      <workItem from="1700124659527" duration="18424000" />
+      <workItem from="1700202371640" duration="105000" />
+      <workItem from="1700222497332" duration="1484000" />
+      <workItem from="1700238498131" duration="8075000" />
+      <workItem from="1700377065114" duration="4967000" />
+      <workItem from="1700404306457" duration="940000" />
+      <workItem from="1700474864266" duration="786000" />
+      <workItem from="1700514192292" duration="31000" />
+      <workItem from="1700553635376" duration="187000" />
+      <workItem from="1700565275896" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="Add window opens, but has no functionality yet.">
       <option name="closed" value="true" />
@@ -193,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700128986481</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Final version">
+      <option name="closed" value="true" />
+      <created>1700159211300</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700159211300</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +232,7 @@
     <MESSAGE value="Max book is searched properly" />
     <MESSAGE value="All functionality is added and tested. All that's left is to make some design." />
     <MESSAGE value="Completed version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed version" />
+    <MESSAGE value="Final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
   </component>
 </project>
